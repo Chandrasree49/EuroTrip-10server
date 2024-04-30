@@ -1,0 +1,51 @@
+[debug] [2024-04-30T11:46:10.593Z] ----------------------------------------------------------------------
+[debug] [2024-04-30T11:46:10.597Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HP\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-04-30T11:46:10.598Z] CLI Version:   13.7.2
+[debug] [2024-04-30T11:46:10.598Z] Platform:      win32
+[debug] [2024-04-30T11:46:10.598Z] Node Version:  v20.12.2
+[debug] [2024-04-30T11:46:10.599Z] Time:          Tue Apr 30 2024 17:46:10 GMT+0600 (Bangladesh Standard Time)
+[debug] [2024-04-30T11:46:10.599Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-30T11:46:10.607Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-30T11:46:10.607Z] > authorizing via signed-in user (chandrasree097@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\projects\Assignment-10-server
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-04-30T11:47:21.298Z] > refreshing access token with scopes: []
+[debug] [2024-04-30T11:47:21.300Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-04-30T11:47:21.300Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-30T11:47:21.721Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-04-30T11:47:21.721Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-30T11:47:21.728Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-04-30T11:47:22.425Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-04-30T11:47:22.425Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project assignment-10-49ecd (Assignment-10) 
+[info] 
+=== Hosting Setup
+[debug] [2024-04-30T11:47:30.924Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/assignment-10-49ecd [none]
+[debug] [2024-04-30T11:47:31.584Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/assignment-10-49ecd 200
+[debug] [2024-04-30T11:47:31.584Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/assignment-10-49ecd {"projectId":"assignment-10-49ecd","projectNumber":"349947936161","displayName":"Assignment-10","name":"projects/assignment-10-49ecd","resources":{"hostingSite":"assignment-10-49ecd"},"state":"ACTIVE","etag":"1_2fa14ac3-2ce5-4351-96db-06a0d82c61ee"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
