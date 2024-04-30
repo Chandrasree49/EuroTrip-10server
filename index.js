@@ -1,36 +1,34 @@
 const express = require("express");
 const cors = require("cors");
-const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 
 const app = express();
-const port = process.env.PORT || 3002;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*", // Allow requests from any origin (update this to restrict to specific origins)
+    methods: "GET,PUT,POST,DELETE", // Allow specified methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow specified headers
+  })
+);
 app.use(express.json());
 
 const uri =
   "mongodb+srv://chandrasree097:cjZqh3U6PgklGqM7@cluster0.cwtzcv2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
+const client = new MongoClient(uri);
+const database = client.db("addSpotDB");
+const spotCollection = database.collection("addSpot");
+const CcountriesCollection = database.collection("countries");
+
+app.get("/", (req, res) => {
+  res.send("Server is running");
 });
 
 async function startServer() {
   try {
     await client.connect();
     console.log("Connected to MongoDB");
-
-    const database = client.db("addSpotDB");
-    const spotCollection = database.collection("addSpot");
-    const CcountriesCollection = database.collection("countries");
-
-    app.get("/", (req, res) => {
-      res.send("Server is running");
-    });
 
     app.post("/addSpot", async (req, res) => {
       try {
@@ -48,21 +46,20 @@ async function startServer() {
           userName,
         } = req.body;
         const newSpot = {
-            image,
-            tourists_spot_name,
-            country_Name,
-            location,
-            short_description,
-            average_cost,
-            seasonality,
-            travel_time,
-            totalVisitorsPerYear,
-            user: {
-              email: userEmail,
-              name: userName,
-            },
-          };
-       
+          image,
+          tourists_spot_name,
+          country_Name,
+          location,
+          short_description,
+          average_cost,
+          seasonality,
+          travel_time,
+          totalVisitorsPerYear,
+          user: {
+            email: userEmail,
+            name: userName,
+          },
+        };
 
         const result = await spotCollection.insertOne(newSpot);
         res.status(201).json({ message: "Spot added successfully", data: "" });
@@ -144,6 +141,7 @@ async function startServer() {
 
     app.get("/spots", async (req, res) => {
       try {
+        res.set("Access-Control-Allow-Origin", "*");
         const spots = await spotCollection.find({}).toArray();
         res.status(200).json(spots);
       } catch (error) {
@@ -219,7 +217,7 @@ async function startServer() {
       }
     });
 
-    app.listen(port, () => {
+    app.listen(5000, () => {
       console.log(`Server is running on port ${port}`);
     });
   } catch (error) {
