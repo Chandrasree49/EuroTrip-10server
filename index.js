@@ -71,7 +71,7 @@ async function startServer() {
         res.status(500).json({ message: error });
       }
     });
-
+//
     app.put("/updateSpot/:id", async (req, res) => {
       try {
         const {
