@@ -47,7 +47,21 @@ async function startServer() {
           userEmail,
           userName,
         } = req.body;
-
+        const newSpot = {
+            image,
+            tourists_spot_name,
+            country_Name,
+            location,
+            short_description,
+            average_cost,
+            seasonality,
+            travel_time,
+            totalVisitorsPerYear,
+            user: {
+              email: userEmail,
+              name: userName,
+            },
+          };
        
 
         const result = await spotCollection.insertOne(newSpot);
