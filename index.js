@@ -22,7 +22,7 @@ const client = new MongoClient(uri, {
 async function startServer() {
   try {
     await client.connect();
-    console.log("Connected to MongoDB");
+    console.log("Connected");
 
     const database = client.db("addSpotDB");
     const spotCollection = database.collection("addSpot");
@@ -71,7 +71,7 @@ async function startServer() {
         res.status(500).json({ message: error });
       }
     });
-//
+
     app.put("/updateSpot/:id", async (req, res) => {
       try {
         const {
